@@ -1,10 +1,61 @@
 <DOCTYPE html>
+    <!--tut from: https://code-maven.com/getting-started-with-angularjs-->
 <html>
 <head>
     <title>First AngularJS Project</title>
     <meta charset="utf-8" />
+    <!-- scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 </head>
-<body>
+<!--anything with an html that contains 'ng-app' will be read as angularjs-->
+<!--you can place it on the HTML or body or div tags-->
+<body ng-app>
     <h1>hi</h1>
+    <!--hard coded string of Hello World in AngularJS-->
+    <!--you don't put a ';' at the end of the last element within the '{{ }}'-->
+    <div>
+        Hello {{ "World" }}
+        {{ 10 * 10 / 2}}
+    </div>
+    <!--hard coded expression-->
+    <div>
+        10 * 10 / 2 = {{ 10 * 10 / 2}}
+    </div>
+    <!--Variables Containing Numbers-->
+    <div>
+        {{
+            x = 24;
+            y = 26;
+            x + y
+        }}
+    </div>
+    <!--Variables Containing Strings-->
+    <div>
+        {{
+            x = "Hello";
+            y = "World";
+            x + " " + y
+        }}
+    </div>
+    <!--Seperate Varibles-->
+    <!--Unless you want 'y = 26' to appear you have to include a null or empty string (")-->
+    <div>
+        {{
+            x = 24;
+            y = 26;
+            null
+        }}
+        {{
+            x + y
+        }}
+    </div>
+    <!-- ng-model -->
+    <!--When the user enters information into the input box it will automatically display it in the {{name}} in real time-->
+    <!--The model has to match the attribute in the {{}}-->
+    <!--Here we can see "how can we bind input elements to attributes of AngularJS that can be used in expressions." - site marked above-->
+    <div>
+        <br><input ng-model="name" type="text" placeholder="enter your name please"/>
+        <br>Hello, {{name}}
+    </div>
 </body>
 </html>

@@ -1,0 +1,61 @@
+<DOCTYPE html>
+    <!--tut from: https://code-maven.com/getting-started-with-angularjs-->
+<html>
+<head>
+    <title>First AngularJS Project</title>
+    <meta charset="utf-8" />
+    <!-- scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<!--anything with an html that contains 'ng-app' will be read as angularjs-->
+<!--you can place it on the HTML or body or div tags-->
+
+<!-- ####### <body ng-app="HelloWorldApp"> #######-->
+    <!--Controllers-->
+    <!--Normally you would place the script in it's own JS file but for learning/example sake it will be placed here-->
+    <!--The only requirment for the module script is that it is loaded after the angularjs file-->
+    <!--"In order for Angular to connect our module and controller we need to create an HTML element with an ng-app attribute that equals to the name of the module, and inside that HTML element we need to add another HTML element with an attribute called ng-controller that equals to the name of our controller."-->
+    <!--These two mark the area in which the $scope is relevant.-->
+    <!-- Script comments:
+        //1st you have to create an angular.module
+        //angular.module = "Module. A module is a collection of services, directives, controllers, filters, and configuration information. angular.module is used to configure the $injector." – google / https://docs.angularjs.org/api/ng/function/angular.module
+        //module gets two parameters –
+            //1. the name for the module
+            //2. list of dependencies (the [])
+        //2nd we place the controller which too also gets two parameters –
+            //1. the name and usually adding the world Controller onto thr end
+            //2. "function that implements the controller"
+    -->
+    <!--####### <div>
+        <script>
+            angular.module('HelloWorldApp', [])
+                .controller('HelloWorldController', function($scope){
+                    $scope.greeting = 'Hello World!';
+            });
+        </script>
+        <div ng-controller="HelloWorldController">
+            {{greeting}}
+        </div>
+    </div> #######-->
+    <!--#############################-->
+    <!--#############################-->
+    <!--#############################-->
+    <body ng-app="HelloHumanApp">
+    <div>
+        <script>
+            angular.module('HelloHumanApp', [])
+                .controller('HelloHumanController', function($scope){
+                    $scope.greeting = "Hello";
+                    $scope.userName = function() {
+                        $scope.name;
+                    }; //end userName
+            });
+        </script>
+        <div ng-controller="HelloHumanController">
+            <input ng-model="name" type="text" placeholder="first name" ng-keyup="userName()"/>
+            <br>
+            {{greeting + " " + name + "!"}}
+        </div>
+    </div>
+</body>
+</html>

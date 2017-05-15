@@ -1,0 +1,31 @@
+<DOCTYPE html>
+    <!--tut from: https://code-maven.com/getting-started-with-angularjs-->
+<html>
+<head>
+    <title>First AngularJS Project</title>
+    <meta charset="utf-8" />
+    <!-- scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="AddNumbers">
+    <div>
+        <script>
+            angular.module('AddNumbers', [])
+                .controller('AddNumbersController', function($scope){
+                    $scope.addNums = function() {
+                        var x = Number($scope.x || 0);
+                        var y = Number($scope.y || 0);
+                        $scope.sum = x + y;
+                    }; //end userName
+                });
+        </script>
+        <div ng-controller="AddNumbersController">
+            <p>Enter two numbers to add them together</p>
+            <input ng-model="x" type="number" ng-keyup="addNums()" />
+            <input ng-model="y" type="number" ng-keyup="addNums()" />
+            <br>
+            {{ sum }}
+        </div>
+    </div>
+</body>
+</html>
