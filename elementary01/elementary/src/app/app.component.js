@@ -23,6 +23,7 @@ AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
         template: "\n        <h1>{{title}}</h1>\n        <h2>{{hero.name}} details!</h2>\n        <div><p>Id: {{hero.id}}</p></div>\n        <div><p>Name: {{hero.name}}</p></div>\n        <div>\n            <label>name: </label>\n            <input [(ngModel)]=\"hero.name\" placeholder=\"name\">\n        </div>\n        <div>\n            <ul class=\"heroes\">\n              <li *ngFor=\"let hero of heroes\">\n                <span>{{hero.id}}</span> {{hero.name}}\n              </li>\n            </ul>\n        </div>\n        ",
+        styles: ["\n      h1 {\n        background: green;\n      }\n  "]
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;

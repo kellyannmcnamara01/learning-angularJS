@@ -19,6 +19,11 @@ import { Component } from '@angular/core';
             </ul>
         </div>
         `,
+  styles: [`
+      h1 {
+        background: green;
+      }
+  `]
 })
 
 
