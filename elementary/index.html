@@ -1,1 +1,70 @@
-<h1>hi</h1>
+<!DOCTYPE html>
+<!-- define the ng-app-->
+<html lang="en-US">
+<head>
+    <title>Elementary Cheat Sheet</title>
+    <!-- mate tags -->
+    <meta charset="UTF-8">
+    <!-- scripts -->
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- bootstrap js -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <!-- angular js -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.js"></script>
+        <!-- elementary js -->
+        <script src="script.js"></script>
+    <!-- css -->
+        <!-- bootstrap css -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- elementary css -->
+        <!--<link href="main.css" rel="stylesheet" type="text/css">-->
+</head>
+<!-- define the angular controller -->
+<body ng-controller="mainController">
+    <!-- Header -->
+    <header>
+        <!-- Nav -->
+        <nav class="nav-bar">
+            <div class="container">
+                <!-- Nav header -->
+                <div class="navbar-header">
+                    <img src="opt-imgs/elementary-logo.svg" width="126"/>
+                </div>
+                <!-- Nav links -->
+                <ul class="nav navbar-nav navbar-right navbar-fixed">
+                    <li>hi </li>
+                    <li>what's up</li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- End Header -->
+    <!-- Start of the main content -->
+    <!-- this section will be injected with views -->
+<main>
+    <div ng-app="eleApp" ng-controller="mainController">
+        <ul>
+            <li ng-repeat="x in names">
+                {{ x.name + ' ....... ' + x.country }}
+            </li>
+        </ul>
+    </div>
+    <!---------->
+    <!---------->
+    <!---------->
+    <script type="text/javascript" src="weather.js"></script>
+    <div class="weather">
+        <img id="icon" src="imgs/codes/200.png" />
+        <div id="location">Location Placement</div>
+        <div id="temp">0</div>
+        <div id="hum">0</div>
+        <div id="wind">0</div>
+    </div>
+    <!---------->
+    <!---------->
+    <!---------->
+</main>
+</body>
+</html>
