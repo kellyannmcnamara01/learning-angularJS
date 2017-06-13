@@ -18,7 +18,8 @@
     app.controller('myCtrl', function($scope, $http) {
         $http.get("http://localhost/5303/angularJS/learning-angularJS/git-api/public/sections")
             .then(function(response) {
-                $scope.myWelcome = response.data;
+                var testing = response.data;
+                $scope.myWelcome = testing[0];
                 console.log(response);
             });
     });
