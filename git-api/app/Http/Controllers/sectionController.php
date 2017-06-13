@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Cd;
 
 class sectionController extends Controller
 {
@@ -13,12 +14,15 @@ class sectionController extends Controller
      */
     public function index()
     {
-        //
+        /*
         return array(
             1 => 'create',
             2 => 'local changes',
             3 => 'commit history'
-        );
+        );*/
+        $cds = Cd::all();
+        return $cds;
+
     }
 
 
