@@ -3,35 +3,49 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <body>
 
-<div ng-app="myApp" ng-controller="myCtrl">
+<div ng-app="eleApp" ng-controller="eleCtrl">
 
     <p>Today's welcome message is:</p>
 
-    <h2>{{ section }}</h2>
+    <!--<h2>{{ apple }}</h2>-->
     <p>{{ description }}</p>
     <p>{{ codesnippet }}</p>
+
+    <ul>
+        <li ng-repeat="x in apple">
+            {{ x.section + ' desc: ' + x.description + ' code: ' +  x.codesnippet }}
+        </li>
+    </ul>
 
 </div>
 
 <p>The $http service requests a page on the server, and the response is set as the value of the "myWelcome" variable.</p>
 
 <script>
-    var app = angular.module('myApp', []);
-    app.controller('myCtrl', function($scope, $http) {
+    var app = angular.module('eleApp', []);
+    app.controller('eleCtrl', function($scope, $http) {
         $http.get("http://localhost/5303/elementary/git-api/public/sections")
             .then(function(response) {
                 var testing = response.data;
-                $scope.section = testing[0].section;
-                $scope.description = testing[0].description;
-                $scope.codesnippet = testing[0].codesnippet;
-
+                //$scope.section = testing[0].section;
+                //$scope.description = testing[0].description;
+                //$scope.codesnippet = testing[0].codesnippet;
+                var apple = [];
                 for(var i = 0; i < testing.length; i++){
-                    var section = testing[i].section;
-                    var description = testing[i].description;
-                    var codesnippet = testing[i].codesnippet;
-                    console.log("section:" + section + " desc:" + description + " code snipttet:" + codesnippet);
+                    //var section = testing[i].section;
+                    //var description = testing[i].description;
+                    //var codesnippet = testing[i].codesnippet;
+                    apple.push(testing[i]);
+                    //$scope.apple = testing[i].section;
+                    //$scope.description = testing[i].description;
+                    //$scope.codesnippet = testing[i].codesnippet;
+
+                    //console.log("section:" + $scope.section + " ||||||| desc:" + $scope.description + " |||||||| code snipttet:" + $scope.codesnippet);
+                    //console.log(apple);
                 }
-                console.log(response);
+                //console.log(apple[0].section);
+                $scope.apple = apple;
+                console.log($scope.apple);
             });
     });
 </script>
