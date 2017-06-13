@@ -7,7 +7,9 @@
 
     <p>Today's welcome message is:</p>
 
-    <h1>{{myWelcome}}</h1>
+    <h2>{{ section }}</h2>
+    <p>{{ description }}</p>
+    <p>{{ codesnippet }}</p>
 
 </div>
 
@@ -16,10 +18,19 @@
 <script>
     var app = angular.module('myApp', []);
     app.controller('myCtrl', function($scope, $http) {
-        $http.get("http://localhost/5303/angularJS/learning-angularJS/git-api/public/sections")
+        $http.get("http://localhost/5303/elementary/git-api/public/sections")
             .then(function(response) {
                 var testing = response.data;
-                $scope.myWelcome = testing[0];
+                $scope.section = testing[0].section;
+                $scope.description = testing[0].description;
+                $scope.codesnippet = testing[0].codesnippet;
+
+                for(var i = 0; i < testing.length; i++){
+                    var section = testing[i].section;
+                    var description = testing[i].description;
+                    var codesnippet = testing[i].codesnippet;
+                    console.log("section:" + section + " desc:" + description + " code snipttet:" + codesnippet);
+                }
                 console.log(response);
             });
     });
