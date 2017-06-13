@@ -3,7 +3,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <body>
 
-<div ng-app="eleApp" ng-controller="eleCtrl">
+<div ng-app="eleAppTwo" ng-controller="eleCtrlTwo">
 
     <p>Today's welcome message is:</p>
 
@@ -11,19 +11,19 @@
     <p>{{ description }}</p>
     <p>{{ codesnippet }}</p>
 
-    <ul>
-        <li ng-repeat="x in apple">
-            {{ x.section + ' desc: ' + x.description + ' code: ' +  x.codesnippet }}
-        </li>
-    </ul>
+        <div ng-repeat="x in apple">
+            <p>Section: {{ x.section }} <br>
+            description: {{ x.description }} <br>
+            codesnippet: {{ x.codesnippet }}</p>
+        </div>
 
 </div>
 
 <p>The $http service requests a page on the server, and the response is set as the value of the "myWelcome" variable.</p>
-
-<script>
-    var app = angular.module('eleApp', []);
-    app.controller('eleCtrl', function($scope, $http) {
+<script src="git-cheatsheet.js"></script>
+<!--<script>
+    var app = angular.module('eleAppTwo', []);
+    app.controller('eleCtrlTwo', function($scope, $http) {
         $http.get("http://localhost/5303/elementary/git-api/public/sections")
             .then(function(response) {
                 var testing = response.data;
@@ -48,7 +48,7 @@
                 console.log($scope.apple);
             });
     });
-</script>
+</script>-->
 
 </body>
 </html>

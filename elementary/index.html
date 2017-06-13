@@ -22,7 +22,7 @@
         <!--<link href="main.css" rel="stylesheet" type="text/css">-->
 </head>
 <!-- define the angular controller -->
-<body ng-controller="mainController">
+<body>
     <!-- Header -->
     <header>
         <!-- Nav -->
@@ -44,13 +44,29 @@
     <!-- Start of the main content -->
     <!-- this section will be injected with views -->
 <main>
-    <div ng-app="eleApp" ng-controller="mainController">
+    <!--<div ng-app="eleApp" ng-controller="mainController">
         <ul>
             <li ng-repeat="x in names">
                 {{ x.name + ' ....... ' + x.country }}
             </li>
         </ul>
+    </div>-->
+    <div ng-app="eleAppTwo" ng-controller="eleCtrlTwo">
+
+        <p>Today's welcome message is:</p>
+
+        <!--<h2>{{ apple }}</h2>-->
+        <p>{{ description }}</p>
+        <p>{{ codesnippet }}</p>
+
+        <div ng-repeat="x in apple">
+            <p>Section: {{ x.section }} <br>
+                description: {{ x.description }} <br>
+                codesnippet: {{ x.codesnippet }}</p>
+        </div>
+
     </div>
+    <script src="git-cheatsheet.js"></script>
 </main>
 </body>
 </html>
