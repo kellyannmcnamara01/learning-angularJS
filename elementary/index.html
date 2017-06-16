@@ -18,8 +18,11 @@
     <!-- css -->
         <!-- bootstrap css -->
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <!-- elementary css -->
-        <!--<link href="main.css" rel="stylesheet" type="text/css">-->
+        <!-- google fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600" rel="stylesheet">
+        <!-- ele css -->
+        <link type="text/css" rel="stylesheet" href="main.css">
+    <!--<link href="main.css" rel="stylesheet" type="text/css">-->
 </head>
 <!-- define the angular controller -->
 <body>
@@ -44,29 +47,34 @@
     <!-- Start of the main content -->
     <!-- this section will be injected with views -->
 <main>
-    <!--<div ng-app="eleApp" ng-controller="mainController">
-        <ul>
-            <li ng-repeat="x in names">
-                {{ x.name + ' ....... ' + x.country }}
-            </li>
-        </ul>
-    </div>-->
-    <div ng-app="eleAppTwo" ng-controller="eleCtrlTwo">
+    <div class="wrapper">
+        <!--<div ng-app="eleApp" ng-controller="mainController">
+            <ul>
+                <li ng-repeat="x in names">
+                    {{ x.name + ' ....... ' + x.country }}
+                </li>
+            </ul>
+        </div>-->
+        <div ng-app="eleAppTwo" ng-controller="eleCtrlTwo">
 
-        <p>Today's welcome message is:</p>
+            <h2>table of contents.</h2>
 
-        <!--<h2>{{ apple }}</h2>-->
-        <p>{{ description }}</p>
-        <p>{{ codesnippet }}</p>
+            <!--<h2>{{ apple }}</h2>-->
+            <p>{{ description }}</p>
+            <p>{{ codesnippet }}</p>
+            <div class="row">
+                <div ng-repeat="x in apple">
+                    <div class="col-md-6">
+                        <h3 class="section-text">{{ x.section }}</h3>
+                        <p class="desc-text">{{ x.description }}</p>
+                        <p class="code-text">{{ x.codesnippet }}</p>
+                    </div>
+                </div>
+            </div>
 
-        <div ng-repeat="x in apple">
-            <p>Section: {{ x.section }} <br>
-                description: {{ x.description }} <br>
-                codesnippet: {{ x.codesnippet }}</p>
         </div>
-
+        <script src="git-cheatsheet.js"></script>
     </div>
-    <script src="git-cheatsheet.js"></script>
 </main>
 </body>
 </html>

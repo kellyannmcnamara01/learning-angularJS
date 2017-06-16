@@ -1,0 +1,52 @@
+/* 01. Attributes */
+
+* {
+    margin: 0 auto;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+}
+body {
+    font-size: 62.5%;
+    margin: 0 auto;
+    font-weight: 300;
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-rendering: geometricPrecision;
+}
+header, main {
+    background: #303340;
+    color: #21e8eb;
+    font-size: 1.8em;
+}
+header {
+    padding: 8px 0px;
+}
+.wrapper {
+    max-width: 790px;
+    padding: 175px 30px;
+    margin: 0 auto;
+}
+h2 {
+    color: #f98377;
+    font-size: 5em;
+    line-height: 70px;
+    max-width: 550px;
+    margin-left: 0px;
+    padding-bottom: 120px;
+}
+.section-text {
+    color: #ffc655;
+    font-size: 2.2em;
+    text-transform: lowercase;
+    padding-bottom: 10px;
+}
+.desc-text {
+    margin-bottom: 0px;
+}
+.code-text {
+    color: #f98377;
+}
