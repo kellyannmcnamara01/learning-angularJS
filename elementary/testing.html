@@ -11,7 +11,7 @@
     <p>{{ description }}</p>
     <p>{{ codesnippet }}</p>
 
-        <div ng-repeat="x in (filteredItems = (apple | limitTo: 4))">
+        <div ng-repeat="x in (filteredItems = (apple | orderBy: 'section'))">
             <p>Section: {{ x.section }} <br>
             description: {{ x.description }} <br>
             codesnippet: {{ x.codesnippet }}</p>
