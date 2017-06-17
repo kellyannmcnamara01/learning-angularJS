@@ -23,6 +23,14 @@
 
 <script>
     var app = angular.module('eleAppTwo', []);
+
+    // trying to make a filter for unique section names
+    app.filter('unique', function () {
+        return function () {
+            return;
+        }; //end return function
+    }); //enf app.filter
+
     app.controller('eleCtrlTwo', function($scope, $http) {
         $http.get("http://localhost/5303/elementary/git-api/public/sections")
             .then(function(response) {
