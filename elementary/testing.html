@@ -11,7 +11,7 @@
     <p>{{ description }}</p>
     <p>{{ codesnippet }}</p>
 
-        <div ng-repeat="x in (filteredItems = (apple | orderBy: 'section' | unique: 'section'))">
+        <div ng-repeat="x in (filteredItems = (apple | orderBy: 'section'))">
             <p>Section: {{ x.section }} <br>
             description: {{ x.description }} <br>
             codesnippet: {{ x.codesnippet }}</p>
@@ -46,22 +46,6 @@
                 //console.log(apple[0].section);
                 $scope.apple = apple;
                 console.log($scope.apple);
-                //------------------
-                app.filter('unique', function(){
-                    return function(collection, keyword){
-                        var output = [];
-                        var keywords = [];
-
-                        angular.forEach(collection, function(section){
-                            var key = section(keyword);
-                            if(keywords.indexOf(key) === -1 ) {
-                                keywords.push(key);
-                                output.item(keyword);
-                            }
-                        }); //end angular.forEach
-                        return output;
-                    }; //end return function collection, keyword
-                }); //end app.filter
             });
     });
 </script>
