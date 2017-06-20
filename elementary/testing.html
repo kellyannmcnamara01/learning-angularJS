@@ -7,14 +7,20 @@
 
     <p>Today's welcome message is:</p>
 
-    <!--<h2>{{ apple }}</h2>-->
-    <p>{{ description }}</p>
-    <p>{{ codesnippet }}</p>
+        <div ng-repeat="(index, x) in (filteredItems = (apple | orderBy: 'section'))">
+            <!--Index: {{ filteredItems[index] }} <br>
+            Old Sections: {{ currentSection }} <br>
+            CurrentSection: {{ x.section }} <br>-->
+            <div ng-if="x.section !== currentSection ">
+                <h1>Section: {{ x.section }} </h1>
+            </div>
+                description: {{ x.description }} <br>
+                codesnippet: {{ x.codesnippet }}</p>
 
-        <div ng-repeat="x in (filteredItems = (apple | orderBy: 'section'))">
-            <p>Section: {{ x.section }} <br>
+            <div style="display: none;">{{ currentSection = filteredItems[index - 1].section }}</div>
+            <!--<p>Section: {{ x.section | unique }} <br>
             description: {{ x.description }} <br>
-            codesnippet: {{ x.codesnippet }}</p>
+            codesnippet: {{ x.codesnippet }}</p>-->
         </div>
 
 </div>
@@ -26,8 +32,8 @@
 
     // trying to make a filter for unique section names
     app.filter('unique', function () {
-        return function () {
-            return;
+        return function (item) {
+            return item.toUpperCase();
         }; //end return function
     }); //enf app.filter
 
@@ -53,6 +59,7 @@
                 }
                 //console.log(apple[0].section);
                 $scope.apple = apple;
+                $scope.prev = "";
                 console.log($scope.apple);
             });
     });
