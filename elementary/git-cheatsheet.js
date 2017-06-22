@@ -1,4 +1,12 @@
 var app = angular.module('eleAppTwo', []);
+
+// trying to make a filter for unique section names
+/*app.filter('unique', function () {
+    return function (item) {
+        return item.toUpperCase();
+    }; //end return function
+}); //enf app.filter*/
+
 app.controller('eleCtrlTwo', function($scope, $http) {
     $http.get("http://localhost/5303/elementary/git-api/public/sections")
         .then(function(response) {
@@ -21,6 +29,7 @@ app.controller('eleCtrlTwo', function($scope, $http) {
             }
             //console.log(apple[0].section);
             $scope.apple = apple;
+            $scope.prev = "";
             console.log($scope.apple);
         });
 });

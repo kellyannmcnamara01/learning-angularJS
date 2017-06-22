@@ -59,16 +59,25 @@
 
             <h2>table of contents.</h2>
 
-            <!--<h2>{{ apple }}</h2>-->
+            <!--<h2>{{ apple }}</h2>
             <p>{{ description }}</p>
-            <p>{{ codesnippet }}</p>
+            <p>{{ codesnippet }}</p>-->
             <div class="row">
-                <div ng-repeat="x in (filteredItems = (apple | orderBy: 'section'))">
+                <!-- start the ng-repeat to loop through all of the data from the api -->
+                <div ng-repeat="(index, x) in (filteredItems = (apple | orderBy: 'section'))">
+                    <!-- if it is not the same as the section above write the section name -->
+                    <div ng-if="x.section !== currentSection ">
+                        <div class="col-md-12">
+                            <h3 class="section-text">{{ x.section }}</h3>
+                        </div>
+                    </div>
+                    <!-- write the desc and code for each entered snippet -->
                     <div class="col-md-6">
-                        <h3 class="section-text">{{ x.section }}</h3>
                         <p class="desc-text">{{ x.description }}</p>
                         <p class="code-text">{{ x.codesnippet }}</p>
                     </div>
+                    <!-- assign the currentSection to the section's name previous -->
+                    <div style="display: none;">{{ currentSection = filteredItems[index - 1].section }}</div>
                 </div>
             </div>
 
