@@ -69,10 +69,16 @@
         <!-- GIT -->
         <div ng-controller="eleCtrlTwo">
 
+            <!------------>
+            <!------------>
+            <input type="text" ng-model="searchBox">
+            <!------------>
+            <!------------>
+
             <h2 id="git">git.</h2>
             <div class="row">
                 <!-- start the ng-repeat to loop through all of the data from the api -->
-                <div ng-repeat="(index, x) in (filteredItems = (apple | orderBy: 'section'))">
+                <div ng-repeat="(index, x) in (filteredItems = (apple | orderBy: 'section' | filter: searchBox))">
                         <!-- if it is not the same as the section above write the section name -->
                         <div ng-if="x.section !== currentSection ">
                             <h3 class="section-text col-md-12" id="git-{{ x.id }}">{{ x.section }}</h3>
@@ -89,6 +95,26 @@
 
         </div>
         <!-- end of GIT -->
+        <div ng-controller="eleCss">
+
+            <h2 id="css">css.</h2>
+            <div class="row">
+                <!-- start the ng-repeat to loop through all of the data from the api -->
+                <div ng-repeat="(index, x) in (filteredItems = (cssSection | orderBy: 'section' | filter: searchBox))">
+                    <!-- if it is not the same as the section above write the section name -->
+                    <div ng-if="x.section !== currentSection ">
+                        <h3 class="section-text col-md-12" id="css-{{ x.id }}">{{ x.section }}</h3>
+                    </div>
+                    <!-- write the desc and code for each entered snippet -->
+                    <div class="col-md-6">
+                        <p class="desc-text">{{ x.subsection }} <span class="code-text">{{ x.codesnippet }}</span></p>
+                    </div>
+                    <!-- assign the currentSection to the section's name previous -->
+                    <div style="display: none;">{{ currentSection = filteredItems[index - 1].section }}</div>
+                </div>
+            </div>
+
+        </div>
         <script src="git-cheatsheet.js"></script>
     </div>
 </main>
