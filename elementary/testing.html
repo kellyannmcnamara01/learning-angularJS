@@ -3,18 +3,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <body>
 
-<div ng-app="eleAppTwo" ng-controller="eleCtrlTwo">
+<div ng-app="eleAppTwo" ng-controller="eleCss">
 
     <p>Today's welcome message is:</p>
 
-        <div ng-repeat="(index, x) in (filteredItems = (apple | orderBy: 'section'))">
+        <div ng-repeat="(index, x) in (filteredItems = (cssSection | orderBy: 'section'))">
             <!--Index: {{ filteredItems[index] }} <br>
             Old Sections: {{ currentSection }} <br>
             CurrentSection: {{ x.section }} <br>-->
             <div ng-if="x.section !== currentSection ">
                 <h1>Section: {{ x.section }} </h1>
             </div>
-                description: {{ x.description }} <br>
+                description: {{ x.subsection }} <br>
                 codesnippet: {{ x.codesnippet }}</p>
 
             <div style="display: none;">{{ currentSection = filteredItems[index - 1].section }}</div>
@@ -30,38 +30,19 @@
 <script>
     var app = angular.module('eleAppTwo', []);
 
-    // trying to make a filter for unique section names
-    app.filter('unique', function () {
-        return function (item) {
-            return item.toUpperCase();
-        }; //end return function
-    }); //enf app.filter
-
-    app.controller('eleCtrlTwo', function($scope, $http) {
-        $http.get("http://localhost/5303/elementary/git-api/public/sections")
+    app.controller('eleCss', function($scope, $http) {
+        $http.get("http://localhost/5303/elementary/git-api/public/cssSections")
             .then(function(response) {
                 var testing = response.data;
-                //$scope.section = testing[0].section;
-                //$scope.description = testing[0].description;
-                //$scope.codesnippet = testing[0].codesnippet;
-                var apple = [];
+                var cssSection = [];
                 for(var i = 0; i < testing.length; i++){
-                    //var section = testing[i].section;
-                    //var description = testing[i].description;
-                    //var codesnippet = testing[i].codesnippet;
-                    apple.push(testing[i]);
-                    //$scope.apple = testing[i].section;
-                    //$scope.description = testing[i].description;
-                    //$scope.codesnippet = testing[i].codesnippet;
-
-                    //console.log("section:" + $scope.section + " ||||||| desc:" + $scope.description + " |||||||| code snipttet:" + $scope.codesnippet);
-                    //console.log(apple);
+                    cssSection.push(testing[i]);
                 }
                 //console.log(apple[0].section);
-                $scope.apple = apple;
+                $scope.cssSection = cssSection;
                 $scope.prev = "";
-                console.log($scope.apple);
-            });
+                console.log($scope.cssSection);
+        });
     });
 </script>
 
