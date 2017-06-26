@@ -13,4 +13,11 @@ window.onload = function(){
             },
             1000);
     });
+    //Top
+    $('#toplink').click(function () {
+        $('html,body').animate({
+                scrollTop: $("#toppage").offset().top
+            },
+            1000);
+    });
 }; //end widow onload

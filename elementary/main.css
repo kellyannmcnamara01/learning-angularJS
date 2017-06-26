@@ -33,6 +33,11 @@ header {
     padding-bottom: 200px;
 }
 /* ========== 02. Typography ========== */
+h1 {
+    color: #f98377;
+    font-size: 3em;
+    padding-top: 200px;
+}
 h2 {
     color: #f98377;
     font-size: 5em;
@@ -87,4 +92,11 @@ input:hover, input:active, input:focus {
 }
 ::placeholder {
     color: #f98377;
+}
+#top {
+    width: 35px;
+    position: absolute;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
 }
