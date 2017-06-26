@@ -103,9 +103,10 @@
         <div ng-controller="eleCss">
 
             <h2 id="css">css.</h2>
+            <input type="text" ng-model="searchCssBox" id="searchCssBox" placeholder="search css commands">
             <div class="row">
                 <!-- start the ng-repeat to loop through all of the data from the api -->
-                <div ng-repeat="(index, x) in (filteredItems = (cssSection | orderBy: 'section' | filter: searchBox))">
+                <div ng-repeat="(index, x) in (filteredItems = (cssSection | orderBy: 'section' | filter: searchCssBox))">
                     <!-- if it is not the same as the section above write the section name -->
                     <div ng-if="x.section !== currentSection ">
                         <h3 class="section-text col-md-12" id="css-{{ x.id }}">{{ x.section }}</h3>
