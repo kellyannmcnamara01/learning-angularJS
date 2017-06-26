@@ -39,7 +39,7 @@ h2 {
     line-height: 70px;
     max-width: 550px;
     margin-left: 0px;
-    padding-bottom: 120px;
+    padding: 200px 0px 120px;
 }
 .section-text, .section-text a {
     color: #ffc655;
@@ -70,4 +70,21 @@ h2 {
 }
 .yellow-line {
     border-top: 3px solid #ffc655;
+}
+input {
+    background: none;
+    border: #f98377 solid 2px;
+    border-radius: 10px;
+    font-size: 13px;
+    padding: 7px 15px;
+    color: #f98377;
+    min-width: 200px;
+}
+input:hover, input:active, input:focus {
+    outline: none;
+    border: #ffc655 solid 2px;
+    color: #ffc655;
+}
+::placeholder {
+    color: #f98377;
 }
